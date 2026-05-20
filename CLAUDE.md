@@ -18,7 +18,6 @@
 - **GitHub**: [qwerrin](https://github.com/qwerrin)
 - **Zenn**: [@nanairoha](https://zenn.dev/nanairoha)
 - **X**: @nanairo_dev
-- **在住**: 埼玉県川口市(社会人、副業として学習中)
 - **学習開始**: 2026年5月
 - **学習順序**: HTML/CSS → TypeScript（JavaScript含む）→ React
 - **現在のフェーズ**: Phase 1(基礎固め・1〜3か月目)
