@@ -1,0 +1,28 @@
+# ==========================================
+# Obsidian / システム関連
+# ==========================================
+.obsidian/
+.claude/
+.DS_Store
+Thumbs.db
+
+# ==========================================
+# sandbox/ 内の言語別キャッシュ・依存関係（Git管理から除外）
+# ==========================================
+# Node.js (JavaScript / TypeScript)
+sandbox/**/node_modules/
+sandbox/**/*.log
+sandbox/**/.env
+
+# Python
+sandbox/**/__pycache__/
+sandbox/**/*.pyc
+sandbox/**/.venv/
+
+# その他、実証実験で生成されるビルド成果物など
+sandbox/**/dist/
+sandbox/**/build/
+
+# ただし、sandboxフォルダ自体と.gitkeepはGit管理に含める
+!sandbox/
+!sandbox/.gitkeep
