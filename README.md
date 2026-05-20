@@ -1,7 +1,7 @@
 # 📚 nana's learning log
 
-プログラミング学習の進捗ログです。  
-2026年5月から学習を開始し、HTML/CSS → JavaScript → TypeScript → React の順に進めています。
+プログラミング学習の進捗ログです。
+2026年5月から学習を開始し、HTML/CSS → TypeScript → React の順に進めています。
 
 > **目標**:Webフロントエンドの基礎を固め、副業として案件受注できるレベルまで育てる。
 
@@ -20,7 +20,7 @@
 ```
 nana-learning-log/
 ├── README.md                # このファイル
-├── weekly-log/              # 週次ログ(毎週土曜に更新)
+├── weekly-log/              # 週次ログ(日々追記)
 │   ├── _template.md         # 週次ログのテンプレート
 │   └── 2026-W21.md          # 各週の記録
 ├── monthly-review/          # 月次振り返り
@@ -30,8 +30,11 @@ nana-learning-log/
 │   └── html-css.md          # HTML/CSSの学び
 ├── x-operation/             # X(旧Twitter)運用テンプレ
 │   └── templates.md         # 投稿テンプレ集
-└── automation/              # 自動化したいことリスト
-    └── wishlist.md          # アイデアメモ
+├── automation/              # 自動化したいことリスト
+│   └── wishlist.md          # アイデアメモ
+├── sandbox/                 # 実験・検証用
+├── materials/               # 学習資料(インプット素材)
+└── _templates/              # テンプレート集
 ```
 
 ---
@@ -39,8 +42,8 @@ nana-learning-log/
 ## 🎯 段階別の目標
 
 ### Phase 1:基礎固め(1〜3か月)
-- [ ] HTML/CSS/JavaScriptの基礎を習得
-- [ ] Zenn記事を週2本ペースで発信
+- [ ] HTML/CSS/TypeScript（JavaScript含む）の基礎を習得
+- [ ] Zenn記事を週1本ペースで発信
 - [ ] GitHubに小規模リポジトリを3〜5本作る
 - [x] 自己紹介ページを公開 ✅
 
@@ -80,7 +83,7 @@ nana-learning-log/
 
 ## 📌 現在の学習トピック
 
-**HTML/CSS 超速習(9日間プラン)**
+**HTML/CSS 超速習(6日間プラン)**
 
 - [x] Day 1:Webの仕組みとHTML基礎
 - [ ] Day 2:セマンティックHTML

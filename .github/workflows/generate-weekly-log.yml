@@ -1,0 +1,39 @@
+name: Generate Weekly Log
+
+on:
+  schedule:
+    - cron: '0 15 * * 0'  # 日曜 15:00 UTC = 月曜 00:00 JST
+  workflow_dispatch:
+
+jobs:
+  generate-log:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate weekly log
+        run: |
+          WEEK=$(date -u -d '+9 hours' '+%V')
+          YEAR=$(date -u -d '+9 hours' '+%Y')
+          MON=$(date -u -d '+9 hours' '+%Y/%m/%d')
+          SUN=$(date -u -d '+9 hours +6 days' '+%Y/%m/%d')
+          FILE="weekly-log/${YEAR}-W${WEEK}.md"
+
+          if [ ! -f "$FILE" ]; then
+            sed "s/Week XX/Week ${WEEK}/" weekly-log/_template.md \
+              | sed "s|YYYY/MM/DD 〜 YYYY/MM/DD|${MON} 〜 ${SUN}|" \
+              > "$FILE"
+            echo "Created $FILE"
+          else
+            echo "$FILE already exists, skipping"
+          fi
+
+      - name: Commit and push
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add weekly-log/
+          git diff --staged --quiet || git commit -m "chore: generate weekly log $(date -u -d '+9 hours' '+%Y-W%V')"
+          git push

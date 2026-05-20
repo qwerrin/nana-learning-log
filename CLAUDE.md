@@ -20,7 +20,7 @@
 - **X**: @nanairo_dev
 - **在住**: 埼玉県川口市(社会人、副業として学習中)
 - **学習開始**: 2026年5月
-- **学習順序**: HTML/CSS → JavaScript → TypeScript → React
+- **学習順序**: HTML/CSS → TypeScript（JavaScript含む）→ React
 - **現在のフェーズ**: Phase 1(基礎固め・1〜3か月目)
 - **発信ペース**: Zenn 週1本(土曜公開)、X 平日毎日1〜2件
 
@@ -37,13 +37,19 @@ nana-learning-log/
 │   └── 2026-WXX.md          # 各週の記録
 ├── monthly-review/          # 月次振り返り
 │   └── _template.md
-├── learnings/               # 技術別の学び蓄積
+├── learnings/               # 技術別の学び蓄積,自分が手を動かして「得た」知識（アウトプット）
 │   ├── _template.md
 │   └── html-css.md
 ├── x-operation/             # X 投稿テンプレ
 │   └── templates.md
 └── automation/              # 自動化アイデア
-    └── wishlist.md
+│    └── wishlist.md
+├── sandbox/                 # 実験場
+└── materials/               # ★新設：Claudeに作ってもらった26ファイル（インプット）
+    ├── day1-web-basic.md    # Day 1用の資料
+    ├── day2-semantic-html.md# Day 2用の資料
+    ├── day3-css-basic.md    # Day 3用の資料
+    └── ... (26ファイル)
 ```
 
 ---
@@ -127,7 +133,6 @@ nana-learning-log/
 1. 該当週のファイルが存在しないとき → 「2026-WXX.md を新規作成しますか?」
 2. ユーザーの発言があいまいで、行動/学び/詰まりに分類できないとき
 3. 既存項目と内容が重複していそうなとき
-4. 追記後、git commit してよいか
 
 ---
 
@@ -142,7 +147,4 @@ nana-learning-log/
 - 行動: HTMLのリストタグを学習
 - 学び: ul/ol/liの使い分け
 - 詰まり: liはulかolの中に入れる必要がある
-
-このまま git commit しますか?
-コミットメッセージ案: "Add Wed log: HTML list tags"
 ```
