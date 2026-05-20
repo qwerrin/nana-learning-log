@@ -16,20 +16,22 @@
 ---
 
 ## 📂 このリポジトリの構成
+
+```
 nana-learning-log/
-├── README.md
-├── weekly-log/
-│   ├── _template.md
-│   └── 2026-W21.md
-├── monthly-review/
-│   └── _template.md
-├── learnings/
-│   ├── _template.md
-│   └── html-css.md
-├── x-operation/
-│   └── templates.md
-└── automation/                 ← 今日追加
-    └── wishlist.md             ← 今日追加
+├── README.md                # このファイル
+├── weekly-log/              # 週次ログ(毎週土曜に更新)
+│   ├── _template.md         # 週次ログのテンプレート
+│   └── 2026-W21.md          # 各週の記録
+├── monthly-review/          # 月次振り返り
+│   └── _template.md         # 月次振り返りのテンプレート
+├── learnings/               # 技術別の学び蓄積
+│   ├── _template.md         # 技術別ログのテンプレート
+│   └── html-css.md          # HTML/CSSの学び
+├── x-operation/             # X(旧Twitter)運用テンプレ
+│   └── templates.md         # 投稿テンプレ集
+└── automation/              # 自動化したいことリスト
+    └── wishlist.md          # アイデアメモ
 ```
 
 ---
