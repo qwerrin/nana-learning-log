@@ -86,9 +86,9 @@ nana-learning-log/
 **HTML/CSS 超速習(6日間プラン)**
 
 - [x] Day 1:Webの仕組みとHTML基礎
-- [ ] Day 2:セマンティックHTML
+- [x] Day 2:セマンティックHTML ✅
 - [ ] Day 3〜:CSS基礎
 
 ---
 
-*最終更新:2026年5月20日*
+*最終更新:2026年5月21日*
