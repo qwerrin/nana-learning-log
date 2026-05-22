@@ -90,7 +90,7 @@ nana-learning-log/
 - [x] Day 3:フォームと入力要素 ✅
 - [x] Day 4:CSS基礎・セレクタ・ボックスモデル ✅
 - [x] Day 5:Flexbox ✅
-- [ ] Day 6:レスポンシブデザイン
+- [x] Day 6:CSS Grid・レスポンシブデザイン ✅
 - [ ] Day 7:現代CSS応用とアニメーション
 - [ ] Day 8〜9:JavaScript参考資料(TypeScript路線では任意)
 
@@ -104,4 +104,4 @@ nana-learning-log/
 
 ---
 
-*最終更新:2026年5月22日（Day 5完了）*
+*最終更新:2026年5月22日（Day 6完了）*

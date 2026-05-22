@@ -73,6 +73,113 @@
 - 命名は「これは何色か」ではなく「**これは何のための色か**」で考える
 - → 命名単語の一覧は [css-variable-naming.md](css-variable-naming.md) を参照
 
+### CSS Grid — 2次元レイアウト
+
+```css
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3列均等 */
+  gap: 16px;
+}
+```
+
+- **`fr` 単位** = 余ったスペースを比率で分ける（fraction）
+- `repeat(3, 1fr)` = `1fr 1fr 1fr` と同じ、`repeat(12, 1fr)` で12列も楽
+- 固定 + 可変の組み合わせ → `grid-template-columns: 200px 1fr`
+
+### `repeat(auto-fit, minmax())` — メディアクエリ不要のレスポンシブ
+
+```css
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
+```
+
+- **`auto-fit`** = 画面に入る分だけ列を自動生成
+- **`minmax(250px, 1fr)`** = 最小250px、余ったスペースで伸縮
+- これ1行で画面幅に応じて列数が自動変化（**現代CSSの最強パターン**）
+
+### `grid-template-areas` — 名前付きレイアウト
+
+```css
+.layout {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-areas:
+    "header  header"
+    "sidebar main"
+    "footer  footer";
+}
+
+header { grid-area: header; }
+aside  { grid-area: sidebar; }
+main   { grid-area: main; }
+footer { grid-area: footer; }
+```
+
+- **`grid-template-areas`** でコードを見ただけでレイアウトが分かる
+- 同じ名前を並べるとセルが結合される
+- `grid-area: 名前` は任意の名前。クラス名と一致してなくてもよい
+- セマンティックタグ（`header` `main` `aside` `footer`）が1つしか出ないならクラスなしで直接指定できる
+
+### Flexbox vs Grid の使い分け
+
+| やりたいこと | 使うもの |
+|---|---|
+| ナビバー（ロゴ左・メニュー右） | **Flexbox** |
+| カードの自動レスポンシブグリッド | **Grid**（`auto-fit`） |
+| フォームのボタン横並び | **Flexbox** |
+| ページ全体のレイアウト | **Grid**（`template-areas`） |
+| 縦横センタリング | **Flexbox** |
+
+→ ページ全体は Grid、その中のナビなどは Flexbox と**入れ子で使うのが現代の主流**
+
+### メディアクエリ（`@media`）とモバイルファースト
+
+```css
+/* モバイル（デフォルト）を先に書く */
+.layout {
+  grid-template-areas:
+    "header"
+    "main"
+    "sidebar"
+    "footer";
+  grid-template-columns: 1fr;
+}
+
+/* タブレット以上で上書き */
+@media (min-width: 48rem) {
+  .layout {
+    grid-template-areas:
+      "header  header"
+      "sidebar main"
+      "footer  footer";
+    grid-template-columns: 200px 1fr;
+  }
+}
+```
+
+- **モバイルファースト** = スマホ用を先に書き、PCは `min-width` で上書き
+- `max-width` より `min-width` が現代の標準（モバイルファースト）
+- ブレイクポイントの目安: `48rem`（768px）タブレット、`64rem`（1024px）デスクトップ
+
+### `clamp()` — Fluid Typography
+
+```css
+h1 { font-size: clamp(1.5rem, 5vw, 3rem); }
+/*                   最小    推奨  最大  */
+```
+
+- 画面が狭い → 最小値以下にならない
+- 画面が広い → 最大値以上にならない
+- その間 → `vw`（画面幅の%）でスムーズに変化
+- メディアクエリを3つ書くかわりに**1行で済む**
+- 余白にも使える → `padding: clamp(1rem, 5vw, 3rem)`
+
+---
+
 ### Flexbox — 1次元レイアウトの基本
 
 ```css

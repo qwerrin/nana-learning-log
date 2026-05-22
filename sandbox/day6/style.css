@@ -1,0 +1,38 @@
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, sans-serif; }
+
+.layout {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header  header"
+    "sidebar main"
+    "footer  footer";
+  gap: 16px;
+  min-height: 100vh;
+  padding: 16px;
+}
+
+header  { grid-area: header;  background: #3b82f6; color: white; padding: 16px; }
+aside { grid-area: sidebar; background: #e5e7eb; padding: 16px; }
+main    { grid-area: main;    background: white;   padding: 16px; }
+footer  { grid-area: footer;  background: #1f2937; color: white;  padding: 16px; }
+
+.hero-title {
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  margin: 0 0 1rem;
+}
+/*（デスクトップ用） */
+
+/* ↓ 767px以下のとき（スマホ）に上書き */
+@media (max-width: 767px) {
+  .layout {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "main"
+      "sidebar"
+      "footer";
+  }
+}
