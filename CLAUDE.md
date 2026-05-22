@@ -44,11 +44,11 @@ nana-learning-log/
 └── automation/              # 自動化アイデア
 │    └── wishlist.md
 ├── sandbox/                 # 実験場
-└── materials/               # ★新設：Claudeに作ってもらった26ファイル（インプット）
-    ├── day1-web-basic.md    # Day 1用の資料
-    ├── day2-semantic-html.md# Day 2用の資料
-    ├── day3-css-basic.md    # Day 3用の資料
-    └── ... (26ファイル)
+└── materials/               # Claudeに作ってもらった学習資料（インプット）
+    ├── htmlcss-day1.md      # HTML/CSS Day 1〜9（9ファイル）
+    ├── ...
+    ├── typescript-plan.md   # TypeScript全体計画
+    └── typescript-ch00.md   # TypeScript ch00〜ch19（20ファイル）
 ```
 
 ---

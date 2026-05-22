@@ -83,12 +83,25 @@ nana-learning-log/
 
 ## 📌 現在の学習トピック
 
-**HTML/CSS 超速習(6日間プラン)**
+### HTML/CSS 超速習(9日間プラン)
 
-- [x] Day 1:Webの仕組みとHTML基礎
+- [x] Day 1:Webの仕組みとHTML基礎 ✅
 - [x] Day 2:セマンティックHTML ✅
-- [ ] Day 3〜:CSS基礎
+- [ ] Day 3:CSS基礎
+- [ ] Day 4:レイアウト(Flexbox)
+- [ ] Day 5:レイアウト(Grid)
+- [ ] Day 6:レスポンシブデザイン
+- [ ] Day 7:現代CSS応用とアニメーション
+- [ ] Day 8〜9:JavaScript参考資料(TypeScript路線では任意)
+
+### TypeScript 統合教材(20章)
+
+- [ ] Phase 0:導入(ch00〜ch01)
+- [ ] Phase 1:言語基礎(ch02〜ch07)
+- [ ] Phase 2:型システム(ch08〜ch12)
+- [ ] Phase 3:実践 React + Tailwind(ch13〜ch17)
+- [ ] Phase 4:仕上げ(ch18〜ch19)
 
 ---
 
-*最終更新:2026年5月21日*
+*最終更新:2026年5月22日*
