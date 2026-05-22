@@ -147,3 +147,9 @@ nana-learning-log/
 - 学び: ul/ol/liの使い分け
 - 詰まり: liはulかolの中に入れる必要がある
 ```
+
+---
+
+## 9. 学習セッションのメンタリング方針
+
+@_templates/Learning_Mentor.md
