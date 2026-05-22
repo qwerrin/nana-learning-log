@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お問い合わせ</title>
+</head>
+<body>
+  <header>
+    <h1>お問い合わせフォーム</h1>
+    <p>下記フォームよりお問い合わせください</p>
+  </header>
+  <main>
+    <form>
+      <fieldset>
+        <legend>お客様情報</legend>
+        <p>
+          <label for="name">お名前</label><br>
+          <input type="text" id="name" name="name" required minlength="2">
+        </p>
+        <p>
+          <label for="email">メールアドレス</label><br>
+          <input type="email" id="email" name="email" required>
+        </p>
+        <p>
+          <label for="phone">電話番号(任意)</label><br>
+          <input type="tel" id="phone" name="phone">
+        </p>
+      </fieldset>
+      <fieldset>
+        <legend>お問い合わせ内容</legend>
+        <p>
+          <label for="category">カテゴリ</label><br>
+          <select name="category" id="category" required>
+            <option value="">選択してください</option>
+            <option value="question">ご質問</option>
+            <option value="bug">不具合報告</option>
+            <option value="request">機能リクエスト</option>
+            <option value="other">その他</option>
+          </select>
+        </p>
+        <p>
+          優先度<br>
+          <label><input type="radio" name="priority" value="low">低</label>
+          <label><input type="radio" name="priority" value="middle" checked>中</label>
+          <label><input type="radio" name="priority" value="high">高</label>
+        </p>
+        <p>
+          <label for="message">メッセージ</label><br>
+          <textarea
+            name="message"
+            id="message"
+            rows="6"
+            cols="50"
+            required
+            minlength="10"
+            placeholder="お問い合わせ内容を詳しくご記入ください"
+            ></textarea>
+        </p>
+      </fieldset>
+      <p>
+        <button type="submit" onclick="event.preventDefault(); confirmDialog.showModal();">送信</button>
+        <button type="reset">クリア</button>
+      </p>
+    </form>
+    <dialog id="confirmDialog">
+      <h2>送信内容の確認</h2>
+      <p>入力内容に間違いはありませんか?</p>
+      <form method="dialog">
+        <button value="cancel">修正する</button>
+        <button value="confirm">送信する</button>
+      </form>
+    </dialog>
+  </main>
+  <footer>
+    <p><small>&copy; 2026 My Site</small></p>
+  </footer>
+
+</body>
+</html>

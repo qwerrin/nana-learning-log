@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>はじめてのフォーム</title>
+</head>
+<body>
+  <h1>お問い合わせ</h1>
+
+  <form>
+    <p>
+      <label for="name">お名前</label><br>
+      <input type="text" id="name" name="name" required>
+    </p>
+    <p>
+      <label for="email">メールアドレス</label><br>
+      <input type="email" id="email" name="email" required>
+    </p>
+    <p>
+      <label for="password">パスワード</label><br>
+      <input type="password" id="password" name="password" required>
+    </p>
+    <p>
+    <label for="age">年齢</label><br>
+    <input type="number" id="age" name="age" min="0" max="120" required>
+    </p>
+    <p>
+      <label>
+        <input type="radio" name="gender" value="male">
+        男性
+      </label>
+      <label>
+        <input type="radio" name="gender" value="female">
+        女性
+      </label>
+      <label>
+        <input type="radio" name="gender" value="other">
+        その他
+      </label>
+    </p>
+    <p>
+      <label>
+        <input type="checkbox" name="hobby" value="tech">
+        技術
+      </label>
+      <label>
+        <input type="checkbox" name="hobby" value="design">
+        デザイン
+      </label>
+      <label>
+        <input type="checkbox" name="hobby" value="business">
+        ビジネス
+      </label>
+    </p>
+    <p>
+      <label>
+        自己紹介<br>
+        <textarea name="bio" id="bio" rows="4"></textarea>
+      </label>
+    </p>
+    <p>
+      <button type="submit">送信</button>
+    </p>
+  </form>
+</body>
+</html>
