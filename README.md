@@ -88,7 +88,7 @@ nana-learning-log/
 - [x] Day 1:Webの仕組みとHTML基礎 ✅
 - [x] Day 2:セマンティックHTML ✅
 - [x] Day 3:フォームと入力要素 ✅
-- [ ] Day 4:レイアウト(Flexbox)
+- [x] Day 4:CSS基礎・セレクタ・ボックスモデル ✅
 - [ ] Day 5:レイアウト(Grid)
 - [ ] Day 6:レスポンシブデザイン
 - [ ] Day 7:現代CSS応用とアニメーション
@@ -104,4 +104,4 @@ nana-learning-log/
 
 ---
 
-*最終更新:2026年5月23日*
+*最終更新:2026年5月23日（Day 4完了）*
