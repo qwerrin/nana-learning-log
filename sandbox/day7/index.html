@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Day 7 — 現代CSS応用</title>
+</head>
+<body>
+
+  <!-- === 1. CSS Nesting 演習 === -->
+  <section class="section">
+    <h2>1. CSS Nesting</h2>
+
+    <!-- ミニ演習1: フラットなCSSをネストで書き直す -->
+    <button class="button">通常ボタン</button>
+    <button class="button large">大きいボタン</button>
+  </section>
+
+  <!-- === 2. :has() 演習 === -->
+  <section class="section">
+    <h2>2. :has()</h2>
+
+    <!-- ミニ演習2: チェックで打ち消し線 -->
+    <ul class="todo">
+      <li><label><input type="checkbox"> 牛乳を買う</label></li>
+      <li><label><input type="checkbox" checked> TypeScriptを学ぶ</label></li>
+      <li><label><input type="checkbox"> Gridを復習する</label></li>
+    </ul>
+
+    <!-- ミニ演習2: エラーフィールド強調 -->
+    <form class="demo-form">
+      <label>
+        名前
+        <input type="text" required minlength="2" placeholder="2文字以上">
+      </label>
+      <label>
+        メール
+        <input type="email" required placeholder="example@mail.com">
+      </label>
+      <button type="submit">送信</button>
+    </form>
+  </section>
+
+  <!-- === 4. transition 演習 === -->
+  <section class="section">
+    <h2>4. transition</h2>
+    <button class="btn-hover">ホバーしてね</button>
+
+    <div class="card-hover">
+      <h3>ホバーカード</h3>
+      <p>上に浮き上がります</p>
+    </div>
+  </section>
+
+  <!-- === 5. animation 演習 === -->
+  <section class="section">
+    <h2>5. animation</h2>
+    <div class="spinner"></div>
+
+    <div class="notification">スライドイン通知バナー</div>
+  </section>
+
+</body>
+</html>

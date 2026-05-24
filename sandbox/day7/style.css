@@ -1,0 +1,204 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px;
+  line-height: 1.6;
+}
+
+.section {
+  margin-bottom: 48px;
+  padding: 24px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+/* ============================
+   1. CSS Nesting
+   ここを自分でネスト構文に書き直してみよう！
+   ============================ */
+
+/* TODO: 以下のフラットなCSSをネストで書き直す */
+
+.button {
+  background: #3b82f6;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 8px;
+
+  &:hover {
+    background: #2563eb;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #3b82f6;
+    outline-offset: 4px;
+  }
+
+  &.large {
+    font-size: 1.25rem;
+  }
+}
+
+/* ============================
+   2. :has()
+   ============================ */
+
+/* TODO: ここに :has() を使ったスタイルを書く */
+
+.todo {
+  list-style: none;
+  padding: 0;
+}
+
+.todo li {
+  padding: 8px 0;
+}
+
+.todo li:has(input:checked) {
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+
+/* チェックされたら取り消し線 → :has() で書いてみよう */
+
+
+/* フォームのエラー強調 → :has() で書いてみよう */
+.demo-form {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 320px;
+}
+
+.demo-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.875rem;
+}
+
+label:has(input:invalid) {
+  color: red;
+}
+
+.demo-form input {
+  padding: 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+}
+
+input:invalid {
+  border-color: red;
+}
+
+.demo-form button {
+  padding: 8px 16px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+/* ============================
+   4. transition
+   ============================ */
+
+/* TODO: ミニ演習3 — ホバーボタン (transition を使う) */
+.btn-hover {
+  padding: 12px 24px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  /* ここに transition を追加 */
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-hover:hover {
+  /* ここにホバー時のスタイルを書く */
+  background: darkblue;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+/* カードのホバー */
+.card-hover {
+  margin-top: 16px;
+  padding: 24px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  max-width: 300px;
+  /* ここに transition を追加 */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card-hover:hover {
+  /* ここにホバー時のスタイルを書く */
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ============================
+   5. animation
+   ============================ */
+
+/* TODO: スピナーのアニメーションを定義 */
+/* @keyframes spin { ... } */
+
+@keyframes spin {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 4px solid #e5e7eb;
+  border-top-color: #3b82f6;
+  border-radius: 50%;
+  /* ここに animation を書く */
+  animation: spin 1s linear infinite;
+}
+
+/* TODO: スライドインのアニメーションを定義 */
+/* @keyframes slideIn { ... } */
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.notification {
+  margin-top: 16px;
+  padding: 12px 16px;
+  background: #ecfdf5;
+  border: 1px solid #6ee7b7;
+  border-radius: 6px;
+  color: #065f46;
+  max-width: 320px;
+  /* ここに animation を書く */
+  animation: slideIn 0.3s ease-out;
+}
