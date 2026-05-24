@@ -42,7 +42,8 @@ nana-learning-log/
 ## 🎯 段階別の目標
 
 ### Phase 1:基礎固め(1〜3か月)
-- [ ] HTML/CSS/TypeScript（JavaScript含む）の基礎を習得
+- [x] HTML/CSS の基礎を習得 ✅
+- [ ] TypeScript（JavaScript含む）の基礎を習得
 - [ ] Zenn記事を週1本ペースで発信
 - [ ] GitHubに小規模リポジトリを3〜5本作る
 - [x] 自己紹介ページを公開 ✅
@@ -70,14 +71,15 @@ nana-learning-log/
 
 | 期間 | 学習時間 | 記事公開 | コード作成 |
 |---|---|---|---|
-| 2026年5月 | - | 1本(HTML編) | 自己紹介ページ + 学習ログ |
+| 2026年5月 | - | 2本 | 自己紹介ページ + HTML/CSS完走(Day 1〜7) |
 | 2026年6月 | - | - | - |
 
 ### 公開記事一覧
 
 | 公開日 | タイトル | リンク |
 |---|---|---|
-| 2026/05/XX | 【AI学習法】HTML初心者がClaudeに学習資料を作ってもらいながら1週間で公開ページを作るまで【HTML編】 | [Zenn](https://zenn.dev/nanairoha/articles/74a41b832c028d) |
+| 2026/05/17 | 【AI学習法】HTML初心者がClaudeに学習資料を作ってもらいながら1週間で公開ページを作るまで【HTML編】 | [Zenn](https://zenn.dev/nanairoha/articles/74a41b832c028d) |
+| 2026/05/23 | プログラミング学習1週目でやって良かったこと：GitHubで学習ログを仕組み化した話 | [Zenn](https://zenn.dev/nanairoha/articles/7124ed264cfedd) |
 
 ---
 
@@ -91,7 +93,7 @@ nana-learning-log/
 - [x] Day 4:CSS基礎・セレクタ・ボックスモデル ✅
 - [x] Day 5:Flexbox ✅
 - [x] Day 6:CSS Grid・レスポンシブデザイン ✅
-- [ ] Day 7:現代CSS応用とアニメーション
+- [x] Day 7:現代CSS応用とアニメーション ✅
 - [ ] Day 8〜9:JavaScript参考資料(TypeScript路線では任意)
 
 ### TypeScript 統合教材(20章)
@@ -104,4 +106,4 @@ nana-learning-log/
 
 ---
 
-*最終更新:2026年5月22日（Day 6完了）*
+*最終更新:2026年5月24日（HTML/CSS編 Day 1〜7 完走・TypeScript編開始準備完了）*
