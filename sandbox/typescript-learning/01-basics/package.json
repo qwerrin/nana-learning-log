@@ -1,0 +1,15 @@
+{
+  "name": "01-basics",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "tsx src/hello.ts",
+    "dev":   "tsx watch src/hello.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "tsx": "^4.22.3",
+    "typescript": "^6.0.3"
+  }
+}
