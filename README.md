@@ -98,12 +98,12 @@ nana-learning-log/
 
 ### TypeScript 統合教材(20章)
 
-- [ ] Phase 0:導入(ch00〜ch01)
-- [ ] Phase 1:言語基礎(ch02〜ch07)
+- [x] Phase 0:導入(ch00〜ch01) ✅
+- [ ] Phase 1:言語基礎(ch02〜ch07) ← ch02 完了・ch03 進行中
 - [ ] Phase 2:型システム(ch08〜ch12)
 - [ ] Phase 3:実践 React + Tailwind(ch13〜ch17)
 - [ ] Phase 4:仕上げ(ch18〜ch19)
 
 ---
 
-*最終更新:2026年5月24日（HTML/CSS編 Day 1〜7 完走・TypeScript編開始準備完了）*
+*最終更新:2026年5月24日（TypeScript ch01〜02 完了・ch03 へ）*
