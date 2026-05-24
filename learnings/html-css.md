@@ -3,7 +3,7 @@
 > HTML/CSS に関する学びの蓄積。  
 > 週次ログから「重要だ」と思った内容を転記して整理。
 
-最終更新:2026/05/22
+最終更新:2026/05/24
 
 ---
 
@@ -259,6 +259,140 @@ h1 { font-size: clamp(1.5rem, 5vw, 3rem); }
 
 ---
 
+### CSS Nesting — 関連スタイルをまとめる
+
+```css
+.card {
+  background: white;
+  padding: 16px;
+
+  h3 { color: blue; }        /* .card h3（& 不要） */
+  &:hover { opacity: 0.9; }  /* 疑似クラスは & 必須 */
+  &.large { font-size: 1.5rem; } /* 複数クラスは & 必須 */
+
+  @media (min-width: 768px) {
+    padding: 32px;           /* メディアクエリも中に書ける */
+  }
+}
+```
+
+- **子要素**のネストは `&` 不要（2023年末以降）
+- **疑似クラス**（`:hover` `:focus`）と**複数クラス**（`.large`）は `&` 必須
+- ネストは3階層以内を目安に（深すぎると詳細度が上がりすぎる）
+
+### `:has()` — 親セレクタ
+
+```css
+/* img を含む .card → パディングを0に */
+.card:has(img) { padding: 0; }
+
+/* チェックされた li → 取り消し線 */
+.todo li:has(input:checked) {
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+
+/* 無効な input を持つ label → 赤く */
+label:has(input:invalid) { color: red; }
+```
+
+- 「**子要素の状態に応じた親のスタイル変更**」がJS不要で書ける
+- 2023年12月に Baseline newly available。現代CSSの革命的機能
+
+### `transition` — 滑らかな変化
+
+```css
+.card {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s; /* 変化するプロパティをカンマ区切りで */
+}
+
+.card:hover {
+  transform: translateY(-4px); /* 上に浮く */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+```
+
+- `transition: all` はパフォーマンス低下の原因 → **変化するプロパティを明示**する
+- 位置の変化は `top`/`left` より `transform` が滑らかで高速
+- イージング: `ease`（デフォルト）か `ease-out` が自然な感じ
+
+### `@keyframes` + `animation` — アニメーション
+
+```css
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.card { animation: fadeIn 0.5s ease-out; }
+
+/* ローディングスピナー */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.spinner { animation: spin 1s linear infinite; }
+```
+
+- `transition` は「A→Bの変化」、`@keyframes` は「ステップごとの動き」
+- `infinite` で無限ループ、`forwards` で終了後の状態を保持
+
+### `prefers-reduced-motion` — アクセシビリティ対応
+
+```css
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+```
+
+- OS設定「動きを減らす」に応じてアニメを止める
+- グローバルに `*` で一括対応するのが現代の定石
+
+### ダークモード対応 — CSS変数 + `prefers-color-scheme`
+
+```css
+:root {
+  --color-bg: #ffffff;
+  --color-text: #1f2937;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #111827;
+    --color-text: #f9fafb;
+  }
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+```
+
+- **色は必ず変数経由**で書く（直書きするとダーク対応できない）
+- 命名は色名（`--blue`）ではなく**役割**（`--color-primary`）で
+
+### `color-mix()` — 派生色を自動生成
+
+```css
+:root {
+  --color-primary: #3b82f6;
+}
+
+.button:hover {
+  background: color-mix(in oklch, var(--color-primary), black 15%);
+}
+```
+
+- 主色だけ変えれば派生色も自動更新
+- `in oklch` が人間の知覚に近い自然な混色になる
+
 ### WAI-ARIA 第1原則
 
 > 「No ARIA is better than bad ARIA（悪いARIAより、ARIA無しの方がマシ）」
@@ -412,7 +546,7 @@ h1 { font-size: clamp(1.5rem, 5vw, 3rem); }
 
 ## 🤔 まだわかっていないこと
 
-- CSS Grid と Flexbox の使い分け（Day 6で学ぶ）
-- レスポンシブデザイン・メディアクエリ（Day 6で学ぶ）
-- `form.checkValidity()` / `form.reportValidity()` の使い方（Day 8）
-- `<dialog>` の `::backdrop` でオーバーレイをスタイリングする方法（Day 4以降）
+- `form.checkValidity()` / `form.reportValidity()` の使い方（TypeScript編で学ぶ）
+- `<dialog>` の `::backdrop` でオーバーレイをスタイリングする方法
+- Container Queries の実践的な使い方（React編で本格活用）
+- View Transitions API（React + TS の段階で）
