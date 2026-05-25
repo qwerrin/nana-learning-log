@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "start": "tsx src/02-variables.ts",
-    "dev":   "tsx watch src/02-variables.ts",
+    "start": "tsx src/03-control.ts",
+    "dev":   "tsx watch src/03-control.ts",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {

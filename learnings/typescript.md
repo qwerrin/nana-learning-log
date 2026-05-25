@@ -3,7 +3,7 @@
 > TypeScript に関する学びの蓄積。  
 > 週次ログから「重要だ」と思った内容を転記して整理。
 
-最終更新:2026/05/24
+最終更新:2026/05/25
 
 ---
 
@@ -117,6 +117,69 @@ first?.toUpperCase();    // ✅ オプショナルチェイニング
 - 配列インデックスアクセスに `| undefined` が付く
 - 配列の範囲外アクセスによるバグを防ぐ
 
+### `||` vs `??` — falsy の扱いが違う
+
+```typescript
+// || は falsy（0, "", false, null, undefined）全部に反応
+console.log(0 || "なし");   // → "なし"（0 は falsy）
+console.log("" || "空");    // → "空"（"" は falsy）
+
+// ?? は null / undefined だけに反応
+console.log(0 ?? "なし");   // → 0（0 は null でも undefined でもない）
+console.log("" ?? "空");    // → ""（"" も同様）
+```
+
+- デフォルト値を設定するなら基本 `??` を使う
+- `0` や空文字も「値あり」として扱いたいときは特に重要
+
+### 条件分岐の early return パターン
+
+```typescript
+// ネストを避けてフラットに書く
+const describeWeather = (temperature: number): string => {
+  if (temperature >= 30) return "暑い";
+  if (temperature >= 20) return "快適";
+  if (temperature >= 10) return "肌寒い";
+  return "寒い";
+};
+```
+
+- `else if` をつなげるより「早めに return して抜ける」ほうが読みやすい
+
+### FizzBuzz — 判定順が重要
+
+```typescript
+const fizzBuzz = (): void => {
+  for (let i = 1; i <= 30; i++) {
+    if (i % 15 === 0) {      // 3と5の倍数を先に判定
+      console.log("FizzBuzz");
+    } else if (i % 3 === 0) {
+      console.log("Fizz");
+    } else if (i % 5 === 0) {
+      console.log("Buzz");
+    } else {
+      console.log(i);
+    }
+  }
+};
+```
+
+- `i % 15 === 0` を最初に書かないと `i % 3 === 0` に引っかかって "Fizz" だけ出てしまう
+
+### `for...of` でループ
+
+```typescript
+const sum = (numbers: number[]): number => {
+  let total = 0;
+  for (const n of numbers) {
+    total += n;
+  }
+  return total;
+};
+```
+
+- インデックスが不要なら `for...of` がシンプル
+
 ---
 
 ## 💻 よく使うパターン・スニペット
@@ -177,7 +240,6 @@ npx tsc --init
 
 ## 🤔 まだわかっていないこと
 
-- 演算子・制御構文（ch03 で学ぶ）
 - 関数の高度な型（ch04）
 - 配列・オブジェクトの型（ch05）
 - ジェネリクス・ユーティリティ型（ch11）

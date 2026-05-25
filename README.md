@@ -22,12 +22,14 @@ nana-learning-log/
 ├── README.md                # このファイル
 ├── weekly-log/              # 週次ログ(日々追記)
 │   ├── _template.md         # 週次ログのテンプレート
-│   └── 2026-W21.md          # 各週の記録
+│   └── 2026-W22.md          # 各週の記録
 ├── monthly-review/          # 月次振り返り
 │   └── _template.md         # 月次振り返りのテンプレート
 ├── learnings/               # 技術別の学び蓄積
 │   ├── _template.md         # 技術別ログのテンプレート
-│   └── html-css.md          # HTML/CSSの学び
+│   ├── html-css.md          # HTML/CSSの学び
+│   ├── typescript.md        # TypeScriptの学び蓄積
+│   └── notes-ts-ch03.md     # TypeScript ch03 詳細ノート
 ├── x-operation/             # X(旧Twitter)運用テンプレ
 │   └── templates.md         # 投稿テンプレ集
 ├── automation/              # 自動化したいことリスト
@@ -71,7 +73,7 @@ nana-learning-log/
 
 | 期間 | 学習時間 | 記事公開 | コード作成 |
 |---|---|---|---|
-| 2026年5月 | - | 2本 | 自己紹介ページ + HTML/CSS完走(Day 1〜7) |
+| 2026年5月 | - | 4本 | 自己紹介ページ + HTML/CSS完走(Day 1〜7) |
 | 2026年6月 | - | - | - |
 
 ### 公開記事一覧
@@ -80,6 +82,8 @@ nana-learning-log/
 |---|---|---|
 | 2026/05/17 | 【AI学習法】HTML初心者がClaudeに学習資料を作ってもらいながら1週間で公開ページを作るまで【HTML編】 | [Zenn](https://zenn.dev/nanairoha/articles/74a41b832c028d) |
 | 2026/05/23 | プログラミング学習1週目でやって良かったこと：GitHubで学習ログを仕組み化した話 | [Zenn](https://zenn.dev/nanairoha/articles/7124ed264cfedd) |
+| 2026/05/25 | 【AI学習法】CSSをClaudeに聞きながら学んだら、「なぜそう書くか」から理解できた話【CSS編】 | [Zenn](https://zenn.dev/nanairoha/articles/css-learning-with-claude-why) |
+| 2026/05/25 | Claude Codeと一緒に勉強してみたら、一人で詰まる時間がほぼなくなった話【実際の学習編】 | [note](https://note.com/nana_yhr/n/n33aab7df1e2a) |
 
 ---
 
@@ -99,11 +103,11 @@ nana-learning-log/
 ### TypeScript 統合教材(20章)
 
 - [x] Phase 0:導入(ch00〜ch01) ✅
-- [ ] Phase 1:言語基礎(ch02〜ch07) ← ch02 完了・ch03 進行中
+- [ ] Phase 1:言語基礎(ch02〜ch07) ← ch03 完了・ch04 へ
 - [ ] Phase 2:型システム(ch08〜ch12)
 - [ ] Phase 3:実践 React + Tailwind(ch13〜ch17)
 - [ ] Phase 4:仕上げ(ch18〜ch19)
 
 ---
 
-*最終更新:2026年5月24日（TypeScript ch01〜02 完了・ch03 へ）*
+*最終更新:2026年5月25日（TypeScript ch03 完了・ch04 へ）*
