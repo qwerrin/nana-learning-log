@@ -78,4 +78,4 @@ score = 95;
 
 console.log(formatUser2(userId2, userName2, score));
 
-
+export {};

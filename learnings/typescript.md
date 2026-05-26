@@ -3,7 +3,7 @@
 > TypeScript に関する学びの蓄積。  
 > 週次ログから「重要だ」と思った内容を転記して整理。
 
-最終更新:2026/05/25
+最終更新:2026/05/26
 
 ---
 
@@ -180,6 +180,135 @@ const sum = (numbers: number[]): number => {
 
 - インデックスが不要なら `for...of` がシンプル
 
+### Arrow Function — 現代 TypeScript の標準
+
+```typescript
+// フル形式
+const double = (n: number): number => {
+  return n * 2;
+};
+
+// 短縮形（1行なら {} と return を省略）
+const double = (n: number): number => n * 2;
+
+// 引数なし
+const now = (): number => Date.now();
+```
+
+- `const f = (x: T): R => ...` の形が基本
+- TypeScript では引数が1つでも `()` を省略しない（型注釈が必要なため）
+
+### デフォルト引数 vs オプショナル引数
+
+```typescript
+// デフォルト引数: 省略時に値が入る → 型は string
+const a = (name: string, greeting = "Hello") => `${greeting}, ${name}!`;
+
+// オプショナル引数: 省略時は undefined → 型は string | undefined
+const b = (name: string, greeting?: string) => `${greeting ?? "Hello"}, ${name}!`;
+```
+
+- デフォルト引数は型が `string`（undefined にならない）→ `??` なしで使える
+- オプショナル引数は型が `string | undefined` → 関数内で `??` が必要
+- 実務ではデフォルト引数の方が使いやすいことが多い
+
+### 残余引数（Rest Parameters）
+
+```typescript
+const sum = (...numbers: number[]): number => {
+  let total = 0;
+  for (const n of numbers) total += n;
+  return total;
+};
+
+console.log(sum(1, 2, 3));    // 6
+console.log(sum());            // 0
+```
+
+- `...変数名: 型[]` の形。受け取った値は配列になる
+- 通常の引数と組み合わせるときは**最後**に置く
+
+### 関数型とコールバック
+
+```typescript
+// 関数型: (引数名: 型) => 戻り値型
+type NumberTransformer = (n: number) => number;
+
+// コールバックを受け取る関数
+const transform = (arr: number[], fn: (n: number) => number): number[] =>
+  arr.map(fn);
+
+transform([1, 2, 3], n => n * 2);   // [2, 4, 6]
+transform([1, 2, 3], n => n ** 2);  // [1, 4, 9]
+```
+
+- `fn: (n: number) => number` = 「number を受け取り number を返す関数」という型
+- `map`/`filter`/`reduce` のコールバックと同じ仕組み
+
+### コールバック関数 vs 高階関数
+
+```typescript
+// map が「高階関数」、n => n * 2 が「コールバック関数」
+numbers.map(n => n * 2);
+```
+
+- **高階関数**: 関数を引数として**受け取る**側（`map`、`filter`、`reduce` など）
+- **コールバック関数**: 引数として**渡される**側（`n => n * 2` の部分）
+- 「コール(呼び出し)をバック(あとで)する」= 受け取った側があとで呼ぶための関数
+
+コールバックを使う理由: 「枠組み（配列を処理する）」と「中身（どう変換するか）」を分離できる。変換ロジックを外から差し込めるので、同じパターンの関数を量産しなくて済む。
+
+### よく使う配列メソッドと関数型
+
+```typescript
+const numbers = [1, 2, 3, 4, 5];
+
+numbers.map(n => n * 2);              // [2, 4, 6, 8, 10]  — 変換
+numbers.filter(n => n % 2 === 0);    // [2, 4]             — 絞り込み
+numbers.find(n => n > 3);            // 4                  — 最初の1件
+numbers.reduce((acc, n) => acc + n, 0); // 15              — 集計
+```
+
+コールバックの型でメソッドの役割が分かる:
+- `(n) => number` → 変換系（map）
+- `(n) => boolean` → 判定系（filter、find）
+
+### 関数型 vs 関数定義の見分け方
+
+```typescript
+// 型注釈の中 → 関数型
+const transform = (arr: number[], fn: (n: number) => number): number[] => ...
+//                                     ^^^^^^^^^^^^^^^^^^^^^^^^ 関数型
+
+// = の右側 → 関数定義
+const double = (n: number): number => n * 2;
+//             ^^^^^^^^^^^^^^^^^^^^^^^^ 関数定義
+```
+
+### reduce の構造 — for ループとの対応
+
+```typescript
+// for 版
+let total = x;
+for (const f of fns) {
+  total = f(total);
+}
+return total;
+
+// reduce 版（同じ処理を1行で）
+return fns.reduce((acc, f) => f(acc), x);
+```
+
+| for 版 | reduce 版 |
+|---|---|
+| `let total` | `acc` |
+| 初期値 `x` | 第2引数 `x` |
+| `total = f(total)` | `(acc, f) => f(acc)` |
+| `return total` | reduce が自動で返す |
+
+- 初期値（第2引数）は**必ず書く**（省くと型エラーになりがち）
+- 慣れないうちは for で書いてから reduce に直す、で十分
+
 ---
 
 ## 💻 よく使うパターン・スニペット
@@ -236,10 +365,23 @@ npx tsc --init
 - 症状: `userId2` を作ったのに `userId` を渡してしまった
 - 解決: 変数名を揃える意識を持つ
 
+### `export {}` を書かないと変数名が衝突する
+- 症状: 別ファイルの `const sum` と名前がぶつかって `Cannot redeclare block-scoped variable` エラー
+- 原因: `import`/`export` のない TS ファイルはグローバルスコープ扱いになる
+- 解決: ファイル末尾に `export {};` を1行追加してモジュールとして宣言する
+
+### pipe で「前の結果」ではなく「最初の値」を渡し続けてしまう
+- 症状: `total = f(x)` と書いてしまい、毎回最初の値で処理される（結果が 9 になるなど）
+- 原因: 累積処理では「前回の結果」を次に渡す必要があると気づいていなかった
+- 解決: `total = f(total)` — ループ内では**毎回更新される変数**を渡す
+- 覚え方: 「前の結果が次に必要か？」を意識する
+
 ---
 
 ## 🤔 まだわかっていないこと
 
-- 関数の高度な型（ch04）
 - 配列・オブジェクトの型（ch05）
+- `Array<T>` と `T[]` の実務での使い分け（ch05 以降で確認）
+- `reduce` を pipe 以外でどう活用するか
+- クラスのメソッドで Arrow Function より `function` が安全なケース（ch07）
 - ジェネリクス・ユーティリティ型（ch11）

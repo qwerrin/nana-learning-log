@@ -29,7 +29,9 @@ nana-learning-log/
 │   ├── _template.md         # 技術別ログのテンプレート
 │   ├── html-css.md          # HTML/CSSの学び
 │   ├── typescript.md        # TypeScriptの学び蓄積
-│   └── notes-ts-ch03.md     # TypeScript ch03 詳細ノート
+│   ├── notes-ts-ch03.md     # TypeScript ch03 詳細ノート
+│   ├── notes-ts-ch04.md     # TypeScript ch04 詳細ノート
+│   └── weak-spots.md        # 苦手・惜しかったポイント
 ├── x-operation/             # X(旧Twitter)運用テンプレ
 │   └── templates.md         # 投稿テンプレ集
 ├── automation/              # 自動化したいことリスト
@@ -103,11 +105,11 @@ nana-learning-log/
 ### TypeScript 統合教材(20章)
 
 - [x] Phase 0:導入(ch00〜ch01) ✅
-- [ ] Phase 1:言語基礎(ch02〜ch07) ← ch03 完了・ch04 へ
+- [ ] Phase 1:言語基礎(ch02〜ch07) ← ch04 完了・ch05 へ
 - [ ] Phase 2:型システム(ch08〜ch12)
 - [ ] Phase 3:実践 React + Tailwind(ch13〜ch17)
 - [ ] Phase 4:仕上げ(ch18〜ch19)
 
 ---
 
-*最終更新:2026年5月25日（TypeScript ch03 完了・ch04 へ）*
+*最終更新:2026年5月26日（TypeScript ch04 完了・ch05 へ）*

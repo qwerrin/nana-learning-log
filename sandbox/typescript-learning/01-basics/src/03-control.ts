@@ -97,3 +97,5 @@ const fizzBuzz = (): void => {
 
 fizzBuzz();
 
+export {};
+
