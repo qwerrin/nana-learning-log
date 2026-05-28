@@ -31,6 +31,7 @@ nana-learning-log/
 │   ├── typescript.md        # TypeScriptの学び蓄積
 │   ├── notes-ts-ch03.md     # TypeScript ch03 詳細ノート
 │   ├── notes-ts-ch04.md     # TypeScript ch04 詳細ノート
+│   ├── notes-ts-ch05.md     # TypeScript ch05 詳細ノート
 │   └── weak-spots.md        # 苦手・惜しかったポイント
 ├── x-operation/             # X(旧Twitter)運用テンプレ
 │   └── templates.md         # 投稿テンプレ集
@@ -54,9 +55,13 @@ nana-learning-log/
 
 ### Phase 2:収益チャネル拡大(4〜6か月)
 - [ ] React/Next.jsの基礎習得
+- [ ] 飲食店向けポートフォリオ作成（LINE自動化・予約管理）
+- [ ] 飲食店オーナーへの営業開始
 - [ ] クラウドソーシングで初受託
 - [ ] Zenn有料Book初版リリース
 - [ ] 月3〜5万円の収益化
+
+> **副業の強み**: 居酒屋 5年以上の現場経験を持つ作り手として、飲食店向け業務効率化（LINE自動化・予約管理）に特化
 
 ### Phase 3:本格化(7〜12か月)
 - [ ] マイクロSaaS β版リリース
@@ -105,11 +110,11 @@ nana-learning-log/
 ### TypeScript 統合教材(20章)
 
 - [x] Phase 0:導入(ch00〜ch01) ✅
-- [ ] Phase 1:言語基礎(ch02〜ch07) ← ch04 完了・ch05 へ
+- [ ] Phase 1:言語基礎(ch02〜ch07) ← ch05 完了・ch06 へ
 - [ ] Phase 2:型システム(ch08〜ch12)
 - [ ] Phase 3:実践 React + Tailwind(ch13〜ch17)
 - [ ] Phase 4:仕上げ(ch18〜ch19)
 
 ---
 
-*最終更新:2026年5月26日（TypeScript ch04 完了・ch05 へ）*
+*最終更新:2026年5月29日（TypeScript ch05 完了・副業方向性決定）*
