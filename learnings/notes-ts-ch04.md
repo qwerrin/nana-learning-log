@@ -165,6 +165,101 @@ const isEven: NumberPredicate = n => n % 2 === 0;
 
 ---
 
+## 復習メモ（2026/05/29）
+
+### JS と TS の型注釈の対比
+
+**引数が2つある関数**
+
+```javascript
+// JS
+function add(a, b) { return a + b; }
+```
+
+```typescript
+// TS
+const add = (a: number, b: number): number => a + b;
+//               ^^^^^^^^  ^^^^^^^^  ^^^^^^^^
+//               引数の型   引数の型   戻り値の型
+```
+
+**引数がない関数**
+
+```javascript
+// JS
+function now() { return Date.now(); }
+```
+
+```typescript
+// TS
+const now = (): number => Date.now();
+```
+
+**戻り値がない関数（副作用だけ）**
+
+```javascript
+// JS
+function log(message) { console.log(message); }
+```
+
+```typescript
+// TS
+const log = (message: string): void => { console.log(message); };
+```
+
+**パターンまとめ**
+
+| パターン | 書き方 |
+|---|---|
+| 引数2つ | `(a: number, b: number): number =>` |
+| 引数なし | `(): number =>` |
+| 戻り値なし | `(x: string): void =>` |
+
+- 引数の型 → 各引数に `引数名: 型`
+- 戻り値の型 → `)` の後ろに `: 型`
+- **引数の型だけは省略不可**（推論できないため）
+- 戻り値の型は省略しても推論される。ただし複雑な関数では明示すると安全
+
+---
+
+### コールバック関数の型注釈の読み方（2026/05/29）
+
+`=>` の左が「受け取るもの」、右が「返すもの」。
+
+```
+(引数名: 型) => 戻り値の型
+     ↑              ↑
+  何を受け取るか   何を返すか
+```
+
+**段階的な例**
+
+```typescript
+(value: number) => void     // number を受け取って何も返さない
+(value: number) => string   // number を受け取って string を返す
+(a: number, b: number) => number  // number を2つ受け取って number を返す
+```
+
+**引数として渡す場面**
+
+```typescript
+const transform = (arr: number[], fn: (n: number) => number): number[] =>
+  arr.map(fn);
+
+transform([1, 2, 3], n => n * 2); // [2, 4, 6]
+// n => n * 2 が「number を受け取って number を返す関数」なので型が合う
+```
+
+**型注釈 → 役割の対応**
+
+| 型注釈 | 役割 | 使われるメソッド |
+|---|---|---|
+| `(n: number) => void` | 表示・副作用 | forEach |
+| `(n: number) => number` | 変換系 | map |
+| `(n: number) => boolean` | 判定系 | filter / find |
+
+---
+
 ## あとで戻ってきたい疑問
 
 - `Array<T>` と `T[]` の使い分けは「中身が複雑なら `Array<T>`」と覚えたが、
