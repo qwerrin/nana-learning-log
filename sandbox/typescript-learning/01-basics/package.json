@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "start": "tsx src/05-arrays.ts",
-    "dev":   "tsx watch src/05-arrays.ts",
+    "start": "tsx src/06-strings.ts",
+    "dev":   "tsx watch src/06-strings.ts",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {

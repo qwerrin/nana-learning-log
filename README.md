@@ -32,6 +32,7 @@ nana-learning-log/
 │   ├── notes-ts-ch03.md     # TypeScript ch03 詳細ノート
 │   ├── notes-ts-ch04.md     # TypeScript ch04 詳細ノート
 │   ├── notes-ts-ch05.md     # TypeScript ch05 詳細ノート
+│   ├── notes-ts-ch06.md     # TypeScript ch06 詳細ノート
 │   └── weak-spots.md        # 苦手・惜しかったポイント
 ├── x-operation/             # X(旧Twitter)運用テンプレ
 │   └── templates.md         # 投稿テンプレ集
@@ -91,6 +92,7 @@ nana-learning-log/
 | 2026/05/23 | プログラミング学習1週目でやって良かったこと：GitHubで学習ログを仕組み化した話 | [Zenn](https://zenn.dev/nanairoha/articles/7124ed264cfedd) |
 | 2026/05/25 | 【AI学習法】CSSをClaudeに聞きながら学んだら、「なぜそう書くか」から理解できた話【CSS編】 | [Zenn](https://zenn.dev/nanairoha/articles/css-learning-with-claude-why) |
 | 2026/05/25 | Claude Codeと一緒に勉強してみたら、一人で詰まる時間がほぼなくなった話【実際の学習編】 | [note](https://note.com/nana_yhr/n/n33aab7df1e2a) |
+| 2026/05/31 | 【AI学習法】JavaScriptをClaudeに聞きながら学んだら、「なぜそう書くか」から理解できた話【JS編】 | [Zenn](https://zenn.dev/nanairoha/articles/js-learning-with-claude-why) |
 
 ---
 
@@ -110,11 +112,11 @@ nana-learning-log/
 ### TypeScript 統合教材(20章)
 
 - [x] Phase 0:導入(ch00〜ch01) ✅
-- [ ] Phase 1:言語基礎(ch02〜ch07) ← ch05 完了・ch06 へ
+- [ ] Phase 1:言語基礎(ch02〜ch07) ← ch06 完了・ch07 へ
 - [ ] Phase 2:型システム(ch08〜ch12)
 - [ ] Phase 3:実践 React + Tailwind(ch13〜ch17)
 - [ ] Phase 4:仕上げ(ch18〜ch19)
 
 ---
 
-*最終更新:2026年5月29日（TypeScript ch05 完了・副業方向性決定）*
+*最終更新:2026年5月31日（TypeScript ch06 完了）*
